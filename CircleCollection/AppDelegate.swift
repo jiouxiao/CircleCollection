@@ -1,12 +1,13 @@
 //
 //  AppDelegate.swift
-//  CircleCollection
+//  SwiftTest
 //
-//  Created by  wangzi on 16/7/1.
+//  Created by  wangzi on 16/6/23.
 //  Copyright © 2016年 Compony. All rights reserved.
 //
 
 import UIKit
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -16,6 +17,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
+        
+        let rootViewCtr = ViewController()
+        let navigationcCtr = UINavigationController.init(rootViewController: rootViewCtr)
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+        self.window?.rootViewController = navigationcCtr
+        self.window?.backgroundColor = UIColor.blueColor()
+        self.window?.makeKeyAndVisible()
         return true
     }
 
