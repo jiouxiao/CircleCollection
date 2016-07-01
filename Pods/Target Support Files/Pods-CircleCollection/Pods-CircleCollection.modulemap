@@ -1,0 +1,6 @@
+framework module Pods_CircleCollection {
+  umbrella header "Pods-CircleCollection-umbrella.h"
+
+  export *
+  module * { export * }
+}
