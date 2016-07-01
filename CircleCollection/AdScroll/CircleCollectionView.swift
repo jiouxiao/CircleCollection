@@ -111,13 +111,14 @@ class CircleCollectionView: UICollectionView, UICollectionViewDelegate,UICollect
             let cell:CollectionImageCell = collectionView.dequeueReusableCellWithReuseIdentifier(self.identContentStr, forIndexPath: indexPath) as! CollectionImageCell
             
             let index = indexPath.row % self.itemArray.count
-            let curItem = self.itemArray.objectAtIndex(index) as! ItemData
             
-            
-            let tImage =  UIImage(contentsOfFile: curItem.imagePath)
-            
-            cell.imageView.image = tImage
-            cell.title.text = curItem.title
+            if self.itemArray.objectAtIndex(index) is ItemData{
+                
+                let curItem = self.itemArray.objectAtIndex(index) as! ItemData
+                let tImage =  UIImage(contentsOfFile: curItem.imagePath)
+                cell.imageView.image = tImage
+                cell.title.text = curItem.title
+            }
             return cell
         }
     }

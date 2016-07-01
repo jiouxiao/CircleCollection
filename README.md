@@ -1,2 +1,17 @@
 # CircleCollection
 一个用swift写的跑马灯。
+
+
+CircleCollectionView 是一个继承自UICollectionView的类，但是不用设置Layout,init已经被我重写，参数collectionViewLayout
+已经不生效了，内部是一个UICollectionViewFlowLayout,规定了cell间距为空，且cell大小与UICollectionView大小一致。
+
+默认提供了两个类：
+CollectionImageCell继承自UICollectionViewCell，只有图片跟一个title，图片覆盖整个cell，title随便写的。
+ItemData数据类，为什么不是结构体，为了方便扩展，所以给CircleCollectionView加了一个NSMutableArray的数组，方便塞各种数据，所以
+自己写数据类型的各位，麻烦写个类吧。
+
+在默认情况下，只要向CircleCollectionView中的数组中塞一个ItemData类型的array就可以了，CircleCollectionView会自动刷新。
+更改frame后，CircleCollectionView也会自动调整layout.
+
+如果想实现自己的UICollectionViewCell和添加自己的数据，那么继承CircleCollectionDelegate，实现collectionCell方法。数据类型和
+UICollectionViewCell类型请自行注册，并实现赋值。如果塞了自己的数据类型，而又使用了默认的Cell做展示，会显示不出数据。
